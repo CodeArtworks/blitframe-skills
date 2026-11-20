@@ -1,0 +1,16 @@
+{
+  "name": "codeartworks",
+  "description": "Plugins for Code Artworks products.",
+  "owner": {
+    "name": "Code Artworks",
+    "url": "https://codeartworks.com"
+  },
+  "plugins": [
+    {
+      "name": "blitframe",
+      "source": "./",
+      "description": "Render Lottie compositions to video with Blitframe: Agent Skills and the Blitframe MCP server.",
+      "category": "media"
+    }
+  ]
+}

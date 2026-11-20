@@ -1,0 +1,12 @@
+{
+  "name": "blitframe",
+  "version": "1.0.0",
+  "description": "Render Lottie compositions to video with Blitframe: Agent Skills for the workflow, data.json, templates and renders, and the Blitframe MCP server.",
+  "author": {
+    "name": "Code Artworks"
+  },
+  "homepage": "https://codeartworks.com/docs/blitframe/ai-agents",
+  "repository": "https://github.com/CodeArtworks/blitframe-skills",
+  "license": "MIT",
+  "keywords": ["blitframe", "video", "render", "lottie", "after-effects", "motion-graphics", "mcp"]
+}

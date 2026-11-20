@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "blitframe": {
+      "type": "http",
+      "url": "https://blitframe.codeartworks.com/mcp"
+    }
+  }
+}
