@@ -1,0 +1,29 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "blitframe",
+  "version": "1.0.0",
+  "description": "Render compositions to video with Blitframe: Agent Skills for the workflow, data.json, templates and renders, and the Blitframe MCP server.",
+  "author": {
+    "name": "Code Artworks",
+    "url": "https://codeartworks.com"
+  },
+  "homepage": "https://codeartworks.com/docs/blitframe/ai-agents",
+  "repository": "https://github.com/CodeArtworks/blitframe-skills",
+  "license": "MIT",
+  "keywords": ["blitframe", "video", "render", "after-effects", "motion-graphics", "mcp"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Blitframe",
+        "shortDescription": "Render motion graphics compositions to video",
+        "longDescription": "Create projects, write and edit data.json, make many videos from one template and render MP4, HLS, frames and HTML5 ads with Blitframe by Code Artworks.",
+        "developerName": "Code Artworks",
+        "websiteURL": "https://codeartworks.com",
+        "defaultPrompt": [
+          "Use Blitframe to make a 5-second title card that says Hello and render it as an MP4.",
+          "Use Blitframe to render one video from my template for each row of products.csv."
+        ]
+      }
+    }
+  }
+}
