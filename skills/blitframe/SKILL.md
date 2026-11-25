@@ -75,10 +75,10 @@ A new project starts empty. Versions never change: to undo, edit again with `res
 ```
 
 - **Edit `main`, unless the task is a variation.** Add `"variation": "<name>"` to edit another variation's head; `expectedHeadVersionId` is then that variation's head.
-- **Edit on the head you read.** Send `expectedHeadVersionId` whenever the change depends on what you read, such as a whole `data.json`: the edit is refused with `head_moved` when the head has moved since; read that head again (the project's for `main`, the variation's from `blitframe:list_variations`), re-apply your change to it and send it again. Never replay a stale file. Without `expectedHeadVersionId`, the change applies to whatever the head is, and when another edit lands first Blitframe makes yours again on the new head, three tries in all before `head_moved`.
+- **Edit on the head you read.** Send `expectedHeadVersionId` whenever the change depends on what you read, such as a whole `data.json`: the edit is refused with `head_moved` when the head has moved since; read that head again (the project's for `main`, the variation's from `blitframe:list_variations` with its name as `q`), re-apply your change to it and send it again. Never replay a stale file. Without `expectedHeadVersionId`, the change applies to whatever the head is, and when another edit lands first Blitframe makes yours again on the new head, three tries in all before `head_moved`.
 - **An edit is a change, not a full upload.** Files you do not mention are kept. Each file has a `path` and exactly one source: `content` (UTF-8 text), `contentBase64` (binary), `uploadId` or `fromVersionId`.
 - **Read the answer.** An edit always answers with a version. It renders only when `renderable` is `true`. Otherwise fix every item in `problems` and edit again. `warnings` do not block: each says what will render differently from what is written.
-- **A request is at most 64 MB**, about 45 MB of binary once base64-encoded. For a larger file or a project ZIP, read [references/uploads.md](references/uploads.md).
+- **A request is at most 64 MB** of UTF-8 JSON, about 45 MB of binary once base64-encoded (another charset is refused with `415`). For a larger file or a project ZIP, read [references/uploads.md](references/uploads.md).
 - The MCP server refuses an argument a tool does not take (`invalid_request`): check the tool's input schema instead of guessing a name.
 - **Make retries safe.** Send an idempotency key with every edit and render: `idempotencyKey` over MCP, the `Idempotency-Key` header over REST, a new unique value (such as a UUID) per operation. When a call times out or its answer is lost, send it again with the same key and the same arguments: you get the first call's version or render, and nothing is made or charged twice. `blitframe:create_project`, `blitframe:import_zip` and `blitframe:create_variation` take one too.
 
@@ -112,7 +112,7 @@ REST answers an HTTP status with `{ "error": { "code": "...", "message": "..." }
 
 | Code | What to do |
 |---|---|
-| `head_moved` | Get the head again (the project's, or the variation's from `blitframe:list_variations`), re-apply your change, send it again |
+| `head_moved` | Get the head again (the project's, or the variation's from `blitframe:list_variations` with its name as `q`), re-apply your change, send it again |
 | `idempotency_key_reused`, `idempotency_key_in_use` | See the retry table above |
 | `variation_exists`, `variation_limit` | The project has that variation name already, or 100 variations. Use the existing one, or ask the user which to delete |
 | `invalid_request`, `invalid_arguments` | Fix the field the message names |

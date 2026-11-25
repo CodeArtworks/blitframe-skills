@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "blitframe",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Render compositions to video with Blitframe: Agent Skills for the workflow, data.json, templates and renders, and the Blitframe MCP server.",
   "author": {
     "name": "Code Artworks",

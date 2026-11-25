@@ -10,7 +10,7 @@ A render turns one version of a project into an MP4, an HLS stream or still fram
 
 ## Before you render
 
-1. The version's `renderable` is `true` (`blitframe:get_project` shows it for `main`'s head; for another variation, `blitframe:get_version` with its `headVersionId` from `blitframe:list_variations`). A version with `problems` is refused (`422 version_not_renderable`), and so is an empty project.
+1. The version's `renderable` is `true` (`blitframe:get_project` shows it for `main`'s head; for another variation, `blitframe:get_version` with its `headVersionId` from `blitframe:list_variations` with its name as `q`). A version with `problems` is refused (`422 version_not_renderable`), and so is an empty project.
 2. `blitframe:get_usage` (`GET /usage`) shows `renderSecondsRemaining` and `limits`:
    - `maxDurationSeconds` caps an MP4 or HLS video; `maxLongEdge` and `maxShortEdge` cap the composition's size in every format. `null` means Blitframe's own maximum.
    - `watermark: true` means outputs carry a small "Made with Blitframe" mark.
